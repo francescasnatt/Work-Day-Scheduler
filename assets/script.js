@@ -1,6 +1,6 @@
 // declare useful elements
 let currentDayEl = $('#currentDay');
-let calendarEl = $('#container');
+let calendarEl = $('.container');
 
 // TO DO: (?) add everything in function so it all occurs when page loads (?)
 
@@ -14,29 +14,19 @@ function displayTime() {
 
 setInterval(displayTime, 1000);
 
-// CALENDAR SHOWING
-// add rows to parent div and display on page
-    // let timeBlockEl = $('<tr>').attr('border', '2px solid black');
-    // let timeBlockCell = $('<td>').attr('border', '2px solid black');;
-    // calendarEl.append(timeBlockEl);
-    // timeBlockEl.append(timeBlockCell);
 
-let timeBlock9 = $('<div>');
-let timeBlock10 = $('<div>');
-let timeBlock11 = $('<div>');
-let timeBlock12 = $('<div>');
-let timeBlock13 = $('<div>');
-let timeBlock14 = $('<div>');
-let timeBlock15 = $('<div>');
-let timeBlock16 = $('<div>');
-let timeBlock17 = $('<div>');
+// CALENDER SAVING AND RETRIEVING TEXT ENTRIES
+// is user clicks save, store event info in local storage so remains on page when user refreshes
+    // type something in text area
+    // if click save, store text in local storage (only save text corresponding to button clicked)
+    // extract text from local storage
+    // text entry should be replaced with extracted value
+    // text should remain if page refreshed
 
 
 
-
-
-
-// CALENDER FUNCTIONING
-
-// CALENDAR STYLED
-// add classes to elements to give CSS styling
+// CALENDAR SHOWING COLOURS BASED ON CURRENT TIME
+// give each div a property called data-time and make value "9" etc based on which hour
+// if data-time < moment.js time = show as grey
+// if data-time = moment.js time = show as red
+// if data-time > moment.js time = show as green

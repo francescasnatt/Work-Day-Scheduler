@@ -4,6 +4,7 @@ body {
   line-height: 1;
 }
 
+/* add this class to the central cell */
 textarea {
   background: transparent;
   border: none;
@@ -21,7 +22,7 @@ textarea {
   border-bottom: 10px solid black;
 }
 
-/* add this class to ... */
+/* add this class to the central cell */
 .description {
   white-space: pre-wrap;
 }
@@ -32,7 +33,7 @@ textarea {
   border-radius: 15px;
 }
 
-/* add this class to ... */
+/* add this class to timeBlockRow */
 .row {
   white-space: pre-wrap;
   height: 80px;
