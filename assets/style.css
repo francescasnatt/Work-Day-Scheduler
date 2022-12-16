@@ -21,42 +21,50 @@ textarea {
   border-bottom: 10px solid black;
 }
 
+/* add this class to ... */
 .description {
   white-space: pre-wrap;
 }
 
+/* add this class to ... */
 .time-block {
   text-align: center;
   border-radius: 15px;
 }
 
+/* add this class to ... */
 .row {
   white-space: pre-wrap;
   height: 80px;
   border-top: 1px solid white;
 }
 
+/* add this class to hours in left most cells */
 .hour {
   background-color: #ffffff;
   color: #000000;
   border-top: 1px dashed #000000;
 }
 
+/* add this class to rows that have occured in the past */
 .past {
   background-color: #d3d3d3;
   color: white;
 }
 
+/* add this class to the current hour */
 .present {
   background-color: #ff6961;
   color: white;
 }
 
+/* add this class to rows that will occur in the future */
 .future {
   background-color: #77dd77;
   color: white;
 }
 
+/* add this class to save button in right most cells */
 .saveBtn {
   border-left: 1px solid black;
   border-top-right-radius: 15px;
