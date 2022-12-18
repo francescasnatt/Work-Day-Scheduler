@@ -51,7 +51,7 @@ function displayTime() {
 setInterval(displayTime, 1000);
 
 
-// CALENDER SAVING AND RETRIEVING TEXT ENTRIES
+// CALENDER SAVING AND RETRIEVING TEXT ENTRIES✅
 // is user clicks save, store event info in local storage so remains on page when user refreshes
     // type something in text area
     // if click save, store text in local storage (only save text corresponding to button clicked)
@@ -69,7 +69,7 @@ setInterval(displayTime, 1000);
 // })
 
 saveButtonAll.on('click', function(){
-    let key = $(this).attr("id").replace('save', 'entry');
+    let key = $(this).attr('id').replace('save', 'entry');
     console.log(key);
     localStorage.setItem(key, $('#'+ key).val());
 })
@@ -84,7 +84,28 @@ for(var i=9; i<18; i++){
 // ----------------------------------------------------------------------------------------------
 
 // CALENDAR SHOWING TIMEBLOCK COLOURS BASED ON CURRENT TIME
-// give each div a property called data-time and make value "9" etc based on which hour
-// if data-time < moment.js time = show as grey
-// if data-time = moment.js time = show as red
-// if data-time > moment.js time = show as green
+// set current time variable to current hour using moment.js
+// give each text area a property called data-time and make value "9" etc based on which hour
+// target each text area based on 
+// if data-time < moment.js time = show text area background as grey
+// if data-time = moment.js time = show text area background as red
+// if data-time > moment.js time = show text area background as green
+
+// CODE
+let currentHour = moment().format('H');
+console.log(currentHour);
+
+let ninthHour = hour9TextArea.attr("data-time");
+console.log(ninthHour);
+
+function test(){
+if(ninthHour < currentHour){
+    console.log("success");
+}
+else{
+    console.log("fail");
+}
+};
+
+
+test();
