@@ -1,6 +1,42 @@
 // declare useful elements
 let currentDayEl = $('#currentDay');
-let calendarEl = $('.container');
+let dayEl = $('.container');
+
+let hour9El = $('#hour-9');
+let hour10El = $('#hour-10');
+let hour11El = $('#hour-11');
+let hour12El = $('#hour-12');
+let hour13El = $('#hour-13');
+let hour14El = $('#hour-14');
+let hour15El = $('#hour-15');
+let hour16El = $('#hour-16');
+let hour17El = $('#hour-17');
+
+let hour9TextArea = $('#hour-9-entry');
+let hour10TextArea = $('#hour-10-entry');
+let hour11TextArea = $('#hour-11-entry');
+let hour12TextArea = $('#hour-12-entry');
+let hour13TextArea = $('#hour-13-entry');
+let hour14TextArea = $('#hour-14-entry');
+let hour15TextArea = $('#hour-15-entry');
+let hour16TextArea = $('#hour-16-entry');
+let hour17TextArea = $('#hour-17-entry');
+
+let hour9Save = $('#hour-9-save');
+let hour10Save = $('#hour-10-save');
+let hour11Save = $('#hour-11-save');
+let hour12Save = $('#hour-12-save');
+let hour13Save = $('#hour-13-save');
+let hour14Save = $('#hour-14-save');
+let hour15Save = $('#hour-15-save');
+let hour16Save = $('#hour-16-save');
+let hour17Save = $('#hour-17-save');
+
+let saveButtonAll = $('.saveBtn');
+let textAreasAll = $('.description');
+
+// let retrievedHour9Entry = localStorage.getItem("hour-9-entry");
+// hour9TextArea.text(retrievedHour9Entry);
 
 // TO DO: (?) add everything in function so it all occurs when page loads (?)
 
@@ -23,9 +59,31 @@ setInterval(displayTime, 1000);
     // text entry should be replaced with extracted value
     // text should remain if page refreshed
 
+// CODE
+    // on click of save button, run function:
+    // save text entry of current text area to local storage
+    // retrieve text entry from local storage and replace original text
+
+// hour9Save.on('click', function(){
+//     localStorage.setItem("hour-9-entry", hour9TextArea.val());
+// })
+
+saveButtonAll.on('click', function(){
+    let key = $(this).attr("id").replace('save', 'entry');
+    console.log(key);
+    localStorage.setItem(key, $('#'+ key).val());
+})
+
+for(var i=9; i<18; i++){
+    var key = `hour-${i}-entry`;
+    let retrievedEntry = localStorage.getItem(key);
+    $('#' + key).text(retrievedEntry);
+}
 
 
-// CALENDAR SHOWING COLOURS BASED ON CURRENT TIME
+// ----------------------------------------------------------------------------------------------
+
+// CALENDAR SHOWING TIMEBLOCK COLOURS BASED ON CURRENT TIME
 // give each div a property called data-time and make value "9" etc based on which hour
 // if data-time < moment.js time = show as grey
 // if data-time = moment.js time = show as red
