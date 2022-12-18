@@ -33,7 +33,7 @@ let hour16Save = $('#hour-16-save');
 let hour17Save = $('#hour-17-save');
 
 let saveButtonAll = $('.saveBtn');
-let textAreasAll = $('.description');
+
 
 // let retrievedHour9Entry = localStorage.getItem("hour-9-entry");
 // hour9TextArea.text(retrievedHour9Entry);
@@ -91,21 +91,55 @@ for(var i=9; i<18; i++){
 // if data-time = moment.js time = show text area background as red
 // if data-time > moment.js time = show text area background as green
 
+    // let ninthHour = hour9TextArea.attr("data-time");
+    // console.log("ninthHour: " + ninthHour);
+
+    // let integerNinthHour = parseInt(ninthHour);
+    // console.log(integerNinthHour);
+
+    // function test(){
+    // if (integerNinthHour < integerCurrentHour){
+    //     console.log("success");
+    // }
+    // else{
+    //     console.log("fail");
+    // }
+    // };
+
+
+    // test();
+
 // CODE
+let textAreasAll = $('.description');
+
 let currentHour = moment().format('H');
-console.log(currentHour);
+let integerCurrentHour = parseInt(currentHour);
+console.log("currentHour: " + integerCurrentHour);
 
-let ninthHour = hour9TextArea.attr("data-time");
-console.log(ninthHour);
+let timeBlockHour = textAreasAll.attr("data-time")
+let integerTimeBlockHour = parseInt(timeBlockHour);
+console.log("timeBlockHour: " + integerTimeBlockHour);
 
-function test(){
-if(ninthHour < currentHour){
-    console.log("success");
+    // function secondTest(){
+    //     if(integerTimeBlockHour < integerCurrentHour){
+    //         console.log("less than");
+    //     }
+    //     if(timeBlockHour > currentHour)
+    //         console.log("greater than");
+    //     else{
+    //         console.log("equal to");
+    //     }
+    //     };
+
+    // secondTest();
+
+
+function thirdTest(){
+    let number = 9;
+    let key = 'hour-' + number + '-entry';
+        $(this).find('#' + key).addClass('past');
 }
-else{
-    console.log("fail");
-}
-};
 
+thirdTest();
 
-test();
+$('#hour-9-entry').addClass('present');
