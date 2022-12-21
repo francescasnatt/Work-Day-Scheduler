@@ -43,7 +43,6 @@ let saveButtonAll = $('.saveBtn');
 // TIMER✅
 // create a function which shows the current date/time and refreshes every second
 function displayTime() {
-    // let rightNow = moment().format('DD MMM YYYY [at] hh:mm:ss a');
     let rightNow = moment().format('dddd, Do MMMM');
     currentDayEl.text(rightNow);
 };
@@ -80,66 +79,49 @@ for(var i=9; i<18; i++){
     $('#' + key).text(retrievedEntry);
 }
 
+// ATTEMPT TO SIMPLIFY ABOVE CODE
+    // saveButtonAll.on('click', function(event){
+    //     let clickedButton = event.target;
+    //     console.log(clickedButton);
+    //     let textEntry = clickedButton.prev();
+    //     console.log(textEntry);
+    // })
+
+
 
 // ----------------------------------------------------------------------------------------------
 
 // CALENDAR SHOWING TIMEBLOCK COLOURS BASED ON CURRENT TIME
-// set current time variable to current hour using moment.js
-// give each text area a property called data-time and make value "9" etc based on which hour
-// target each text area based on 
-// if data-time < moment.js time = show text area background as grey
-// if data-time = moment.js time = show text area background as red
-// if data-time > moment.js time = show text area background as green
-
-    // let ninthHour = hour9TextArea.attr("data-time");
-    // console.log("ninthHour: " + ninthHour);
-
-    // let integerNinthHour = parseInt(ninthHour);
-    // console.log(integerNinthHour);
-
-    // function test(){
-    // if (integerNinthHour < integerCurrentHour){
-    //     console.log("success");
-    // }
-    // else{
-    //     console.log("fail");
-    // }
-    // };
-
-
-    // test();
+    // set current time variable to current hour using moment.js
+    // give each text area a property called data-time and make value "9" etc based on which hour
+    // target each text area based on 
+    // if data-time < moment.js time = show text area background as grey
+    // if data-time = moment.js time = show text area background as red
+    // if data-time > moment.js time = show text area background as green
 
 // CODE
-let textAreasAll = $('.description');
-
+// find current hour as an integer
 let currentHour = moment().format('H');
-let integerCurrentHour = parseInt(currentHour);
-console.log("currentHour: " + integerCurrentHour);
+let intCurrentHour = parseInt(currentHour);
 
-let timeBlockHour = textAreasAll.attr("data-time")
-let integerTimeBlockHour = parseInt(timeBlockHour);
-console.log("timeBlockHour: " + integerTimeBlockHour);
+function handleTimeBlockColours(){
+    for(var i=9; i<18; i++){
+        // target the text area during each iteration of loop✅
+        let textArea = $('#hour-' + [i] + '-entry');
+        // find time block hour for each text area as an integer✅
+        let timeBlockHour = textArea.attr("data-time");
+        let intTimeBlockHour = parseInt(timeBlockHour);
 
-    // function secondTest(){
-    //     if(integerTimeBlockHour < integerCurrentHour){
-    //         console.log("less than");
-    //     }
-    //     if(timeBlockHour > currentHour)
-    //         console.log("greater than");
-    //     else{
-    //         console.log("equal to");
-    //     }
-    //     };
+        // compare intTimeBlockHour to intCurrentHour with above if statement✅
+        // determine which class is added based on which if statement is true✅
+        if(intTimeBlockHour < intCurrentHour){
+                textArea.addClass('past');
+            } else if (intTimeBlockHour > intCurrentHour){
+                textArea.addClass('future');
+            } else {
+                textArea.addClass('present');
+            }
+            };
+    }
 
-    // secondTest();
-
-
-function thirdTest(){
-    let number = 9;
-    let key = 'hour-' + number + '-entry';
-        $(this).find('#' + key).addClass('past');
-}
-
-thirdTest();
-
-$('#hour-9-entry').addClass('present');
+handleTimeBlockColours();
